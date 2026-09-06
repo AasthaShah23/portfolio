@@ -116,7 +116,7 @@ export type Project = {
   category: ProjectCategory
   tags: string[]
   visual: 'chat' | 'commerce' | 'booking' | 'analytics' | 'health' | 'finance'
-  color: string
+  color: 'sage' | 'sand' | 'lavender' | 'blue' | 'rose' | 'peach'
   problem: string
   solution: string
   highlights: string[]
@@ -162,7 +162,7 @@ export const projects: Project[] = [
     color: 'lavender',
     problem: 'Scheduling a simple appointment can take too many messages.',
     solution:
-      'A conversational booking flow that checks availability and guides people to a confirmed appointment.',
+      'A conversational booking flow that checks  and guides people to a confirmed appointment.',
     highlights: ['Availability lookup', 'Conversation context', 'Booking confirmation'],
   },
   {
@@ -254,4 +254,4 @@ export const testimonials = [
     initials: 'SR',
     color: 'sand',
   },
-]
+] as const
