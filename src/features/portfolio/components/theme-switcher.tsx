@@ -13,7 +13,7 @@ export function ThemeSwitcher() {
       type="button"
       variant="ghost"
       size="icon"
-      className="theme-toggle"
+      className="w-10 h-10 shrink-0 text-foreground rounded-full"
       aria-label={label}
       title={label}
       onClick={() => {

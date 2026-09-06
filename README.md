@@ -44,7 +44,8 @@ src/
         contact-section.tsx
   hooks/                     # Future hooks shared across features
   lib/                       # Query client and shared utilities
-  styles/globals.css         # Typography, theme, responsive styles, motion rules
+  styles/globals.css         # Tailwind setup, font imports, document defaults
+  styles/themes.css          # Light/dark color tokens
 public/
   images/portrait.png         # AI-generated placeholder portrait
   sample-resume.pdf           # Clearly labeled sample résumé
@@ -85,3 +86,7 @@ The supplied PDF was used as a visual reference only. Image provenance and the g
 ## Color themes
 
 Use the sun/moon icon in the header to toggle **light mode** (Ivory & teal) and **dark mode** (Charcoal & sage). The selected palette is saved locally in your browser. Theme tokens live in `src/styles/themes.css`, with the typed palette configuration in `src/lib/theme.ts`. Product mockups and the code illustration keep their own colors.
+
+## Styling
+
+Portfolio components use Tailwind utilities directly in TSX, including responsive variants, hover/focus states, and reduced-motion variants. Global CSS is limited to Tailwind theme registration, font imports, keyframes, and document defaults. Color values stay in `src/styles/themes.css` so the header light/dark toggle can switch palettes consistently. Product preview palettes use static, typed Tailwind class maps in `components/preview-styles.ts`; avoid dynamically constructing utility class names.
