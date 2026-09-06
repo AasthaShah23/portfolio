@@ -2,6 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from '@/app/app'
 import '@/styles/globals.css'
+import { applyTheme, getSavedTheme } from '@/lib/theme'
+
+applyTheme(getSavedTheme())
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
