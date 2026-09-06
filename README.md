@@ -1,75 +1,83 @@
-# Portfolio
+# Ananya — Portfolio
 
-React (TypeScript) + Vite, Tailwind CSS, shadcn/ui, TanStack Router, TanStack Query, and GSAP.
+A responsive React + TypeScript portfolio inspired by the supplied wireframe. Warm ivory, deep teal, locally hosted typography, an AI-generated portrait, and subtle GSAP animation.
 
-## Getting started
+All personal details, work history, projects, credentials, and testimonials are **sample content**. The real profile can be added later.
 
-Use Node.js 22.12+ (Node 24 LTS recommended) and npm.
+## Run locally
+
+Use Node 24 (`nvm use`) and npm.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-```sh
-npm run build   # Production output in dist/
-npm run preview # Preview the production build locally
-npm run typecheck # Check application and tooling types
-npm run lint    # Check TypeScript and TSX with Oxlint
-```
+- `npm run build` — strict TypeScript check and production build into `dist/`
+- `npm run typecheck` — check application and Vite configuration types
+- `npm run lint` — Oxlint checks
+- `npm run preview` — serve the production build
+- `npm test` — desktop and mobile Playwright checks (first run: `npx playwright install chromium`)
 
 ## Structure
 
 ```text
-public/                   # Files served as-is
 src/
-  app/
-    app.tsx               # Application composition
-    router.tsx            # Route definitions and route fallbacks
-    providers/            # Application-wide providers
-  assets/                 # Imported images, fonts, and other assets
+  app/                       # Router and application providers
   components/
-    layouts/              # Shared page layouts
-    ui/                   # shadcn/ui component source
+    layouts/                 # Shared route shell
+    ui/                      # shadcn Button, Card, Dialog, Input, Textarea
   features/
-    home/pages/           # Home feature
-    about/pages/          # About feature
-  hooks/                  # Hooks shared across features
-  lib/                    # Shared utilities and library configuration
-  styles/                 # Global CSS and theme tokens
-  main.tsx                # React entry point
+    portfolio/
+      components/            # Navigation, footer, headings, product mockups
+      data/portfolio.ts      # Typed sample profile and content
+      hooks/                 # Scoped GSAP section animation
+      pages/                 # Page composition
+      sections/              # All portfolio sections in one folder
+        hero-section.tsx
+        about-section.tsx
+        skills-section.tsx
+        experience-section.tsx
+        projects-section.tsx
+        education-section.tsx
+        testimonials-section.tsx
+        contact-section.tsx
+  hooks/                     # Future hooks shared across features
+  lib/                       # Query client and shared utilities
+  styles/globals.css         # Typography, theme, responsive styles, motion rules
+public/
+  images/portrait.png         # AI-generated placeholder portrait
+  sample-resume.pdf           # Clearly labeled sample résumé
+  favicon.svg
+ tests/                      # Browser interaction tests
 ```
 
-Use `@/` imports for files inside `src`. Keep feature-specific components, hooks, API functions, and tests together inside `features/<feature>/` as needed. Promote code to shared folders when multiple features use it. Avoid importing one feature's internal files into another feature.
+Use `@/` for imports from `src`. Keep feature-only code inside its feature. All portfolio sections live in the same `sections` directory. The page component only composes those sections.
 
-## Routing and data
+## Replace the sample content
 
-TanStack **Router** handles navigation. TanStack **Query** handles server-state caching and fetching; it is not a router. The shared QueryClient is configured in `src/lib/query-client.ts` and provided at the application root. No backend or sample network requests are configured.
+1. Update `src/features/portfolio/data/portfolio.ts` with the real profile, skills, work, education, projects, and approved testimonials.
+2. Replace `public/images/portrait.png` and `public/sample-resume.pdf`; update portrait alt text and the résumé label.
+3. Update the wordmark in `portfolio-header.tsx` and `portfolio-footer.tsx`, hero stats in `hero-section.tsx`, and page title/description in `index.html`.
+4. Replace project mockups in `components/project-preview.tsx` with real screenshots when available. Each project already has a working case-study dialog.
+5. Connect the social profiles and contact destination in `contact-section.tsx`. The form validates and previews locally; it deliberately does not send or store messages. Email currently uses `hello@example.com`.
+6. Replace the sample credential/testimonial labels and footer demo notice when the real content is verified.
 
-To add a page, create it inside its feature, then register a `createRoute` in `src/app/router.tsx` and add it to the route tree. Use TanStack `Link` for internal navigation. Use `useQuery` and `useMutation` inside feature hooks when connecting an API.
+## Behavior and accessibility
 
-## UI and animation
+- `/` contains the entire portfolio; `/about` redirects to the About section.
+- Sticky desktop navigation and a mobile disclosure menu with Escape support.
+- Project category filtering, accessible Radix/shadcn dialogs, and keyboard focus restoration.
+- Labeled native form validation, whitespace rejection, and local message previews.
+- GSAP section reveals and portrait motion are scoped and cleaned up on unmount.
+- Reduced-motion preferences disable reveals, floating motion, and smooth scrolling.
+- Fonts are bundled locally; no external font requests are required.
+- TanStack Router handles routing; TanStack Query is provided for future server data. No backend is configured.
 
-Tailwind uses the Vite plugin. Theme tokens and dark-mode overrides live in `src/styles/globals.css`; add the `dark` class to the document root to use the dark palette.
+Add more shadcn components with `npx shadcn@latest add <component>`. Use the existing `@/lib/utils` helper for `cn` imports.
 
-Add shadcn components with:
+## Deploy
 
-```sh
-npx shadcn@latest add dialog
-```
+Run `npm run build`, publish `dist/`, and rewrite unknown application URLs to `index.html` for client routing. Keep secrets out of browser-exposed `VITE_` environment variables.
 
-`components.json` configures TypeScript output and the `@/components/ui` destination. Generated components are owned by this project and can be customized.
-
-The home page demonstrates GSAP's `useGSAP` hook, scoped selectors, cleanup on unmount, and reduced-motion support. Follow that pattern for new animations.
-
-## Deployment
-
-Deploy `dist/` after `npm run build`. Configure the host to rewrite unknown application paths to `index.html` so direct visits to routes such as `/about` work.
-
-Keep local environment values in `.env.local`. Vite exposes `VITE_` variables to the browser, so they must not contain secrets. Commit `package-lock.json` and use `npm ci` for reproducible installs.
-
-## References
-
-- [shadcn/ui with Vite](https://ui.shadcn.com/docs/installation/vite)
-- [TanStack Router](https://tanstack.com/router/latest/docs/quick-start)
-- [GSAP with React](https://gsap.com/resources/React/)
+The supplied PDF was used as a visual reference only. Image provenance and the generation prompt are recorded in [docs/portrait-generation.md](docs/portrait-generation.md).
