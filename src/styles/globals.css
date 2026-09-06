@@ -213,6 +213,11 @@ em {
   border-radius: 50%;
   background: var(--primary);
 }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .header-cta {
   font-size: 12px;
   min-width: 118px;
@@ -1589,7 +1594,7 @@ em {
 }
 .site-footer {
   border-top: 1px solid var(--border);
-  padding-block: 30px 82px;
+  padding-block: 30px 24px;
   background: var(--surface-soft);
 }
 .footer-main {
@@ -1969,8 +1974,7 @@ em {
     display: none;
   }
   .header-cta {
-    margin-left: auto;
-    margin-right: 10px;
+    margin: 0;
     height: 34px;
     font-size: 10px;
     min-width: 100px;
@@ -2409,6 +2413,9 @@ em {
   }
 }
 @media (max-width: 360px) {
+  .header-cta {
+    display: none;
+  }
   .hero-stats p {
     font-size: 7px;
   }
