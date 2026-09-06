@@ -1,3 +1,4 @@
+import { ThemeSwitcher } from './theme-switcher'
 import { useEffect, useState } from 'react'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -49,23 +50,26 @@ export function PortfolioHeader() {
             </a>
           ))}
         </nav>
-        <Button asChild className="header-cta">
-          <a href="#contact">
-            Let’s talk <ArrowUpRight aria-hidden="true" />
-          </a>
-        </Button>
-        <Button
-          id="menu-toggle"
-          className="mobile-menu-toggle"
-          variant="ghost"
-          size="icon"
-          aria-label={open ? 'Close navigation' : 'Open navigation'}
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X /> : <Menu />}
-        </Button>
+        <div className="header-actions">
+          <Button asChild className="header-cta">
+            <a href="#contact">
+              Let’s talk <ArrowUpRight aria-hidden="true" />
+            </a>
+          </Button>
+          <ThemeSwitcher />
+          <Button
+            id="menu-toggle"
+            className="mobile-menu-toggle"
+            variant="ghost"
+            size="icon"
+            aria-label={open ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X /> : <Menu />}
+          </Button>
+        </div>
       </div>
       {open && (
         <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">

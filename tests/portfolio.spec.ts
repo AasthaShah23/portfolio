@@ -101,31 +101,29 @@ test('layout remains contained when resizing across breakpoints', async ({ page,
   }
 })
 
-test('all three palettes apply, persist, and support keyboard dismissal', async ({ page }) => {
+test('header toggles light and dark mode and remembers the choice', async ({ page }) => {
   await page.goto('/')
-  const trigger = page.getByRole('button', { name: 'Theme', exact: true })
-  await trigger.click()
-  for (const [label, theme, background] of [
-    ['White & blue', 'blue', 'rgb(248, 250, 255)'],
-    ['Charcoal & sage', 'sage', 'rgb(27, 36, 33)'],
-    ['Ivory & teal', 'ivory', 'rgb(250, 249, 245)'],
-  ]) {
-    const option = page.getByRole('button', { name: new RegExp(label) })
-    await option.click()
-    await expect(option).toHaveAttribute('aria-pressed', 'true')
-    await expect(page.locator('html')).toHaveAttribute('data-theme', theme)
-    await expect(page.locator('body')).toHaveCSS('background-color', background)
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
-  }
-  await page.getByRole('button', { name: /Charcoal & sage/ }).click()
-  await page.keyboard.press('Escape')
-  await expect(trigger).toBeFocused()
-  await expect(trigger).toHaveAttribute('aria-expanded', 'false')
+  const header = page.getByRole('banner')
+  const darkToggle = header.getByRole('button', { name: 'Switch to dark mode' })
+  await expect(darkToggle).toBeVisible()
+  await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(250, 249, 245)')
+  await darkToggle.focus()
+  await page.keyboard.press('Enter')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'sage')
+  await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(27, 36, 33)')
+  await expect(header.getByRole('button', { name: 'Switch to light mode' })).toBeFocused()
   await page.reload()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'sage')
-  await trigger.click()
-  await expect(page.getByRole('button', { name: /Charcoal & sage/ })).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  )
+  await header.getByRole('button', { name: 'Switch to light mode' }).click()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'ivory')
+  await page.reload()
+  await expect(darkToggle).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+})
+
+test('retired blue preference falls back to light mode', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('portfolio-theme', 'blue'))
+  await page.goto('/')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'ivory')
+  await expect(page.getByRole('button', { name: 'Switch to dark mode' })).toBeVisible()
 })

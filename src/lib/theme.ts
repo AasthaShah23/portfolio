@@ -1,21 +1,14 @@
 export const themes = [
   {
     id: 'ivory',
-    label: 'Ivory & teal',
+    label: 'Light mode',
     description: 'Warm, calm & thoughtful',
     color: '#204e43',
     background: '#faf9f5',
   },
   {
-    id: 'blue',
-    label: 'White & blue',
-    description: 'Fresh, clear & understated',
-    color: '#456b99',
-    background: '#f8faff',
-  },
-  {
     id: 'sage',
-    label: 'Charcoal & sage',
+    label: 'Dark mode',
     description: 'Quiet, focused & refined',
     color: '#b0c9a4',
     background: '#1b2421',

@@ -84,4 +84,4 @@ The supplied PDF was used as a visual reference only. Image provenance and the g
 
 ## Color themes
 
-Use the floating **Theme** button to compare Ivory & teal, White & blue, and Charcoal & sage. The selected palette is saved locally in your browser. Theme tokens live in `src/styles/themes.css`, with the typed palette configuration in `src/lib/theme.ts`. Product mockups and the code illustration keep their own colors.
+Use the sun/moon icon in the header to toggle **light mode** (Ivory & teal) and **dark mode** (Charcoal & sage). The selected palette is saved locally in your browser. Theme tokens live in `src/styles/themes.css`, with the typed palette configuration in `src/lib/theme.ts`. Product mockups and the code illustration keep their own colors.
