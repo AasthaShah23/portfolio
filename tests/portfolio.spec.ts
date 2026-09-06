@@ -100,3 +100,32 @@ test('layout remains contained when resizing across breakpoints', async ({ page,
       .toBe(true)
   }
 })
+
+test('all three palettes apply, persist, and support keyboard dismissal', async ({ page }) => {
+  await page.goto('/')
+  const trigger = page.getByRole('button', { name: 'Theme', exact: true })
+  await trigger.click()
+  for (const [label, theme, background] of [
+    ['White & blue', 'blue', 'rgb(248, 250, 255)'],
+    ['Charcoal & sage', 'sage', 'rgb(27, 36, 33)'],
+    ['Ivory & teal', 'ivory', 'rgb(250, 249, 245)'],
+  ]) {
+    const option = page.getByRole('button', { name: new RegExp(label) })
+    await option.click()
+    await expect(option).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.locator('html')).toHaveAttribute('data-theme', theme)
+    await expect(page.locator('body')).toHaveCSS('background-color', background)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  }
+  await page.getByRole('button', { name: /Charcoal & sage/ }).click()
+  await page.keyboard.press('Escape')
+  await expect(trigger).toBeFocused()
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false')
+  await page.reload()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'sage')
+  await trigger.click()
+  await expect(page.getByRole('button', { name: /Charcoal & sage/ })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  )
+})

@@ -81,3 +81,7 @@ Add more shadcn components with `npx shadcn@latest add <component>`. Use the exi
 Run `npm run build`, publish `dist/`, and rewrite unknown application URLs to `index.html` for client routing. Keep secrets out of browser-exposed `VITE_` environment variables.
 
 The supplied PDF was used as a visual reference only. Image provenance and the generation prompt are recorded in [docs/portrait-generation.md](docs/portrait-generation.md).
+
+## Color themes
+
+Use the floating **Theme** button to compare Ivory & teal, White & blue, and Charcoal & sage. The selected palette is saved locally in your browser. Theme tokens live in `src/styles/themes.css`, with the typed palette configuration in `src/lib/theme.ts`. Product mockups and the code illustration keep their own colors.

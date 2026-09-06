@@ -1,3 +1,4 @@
+import { ThemeSwitcher } from '../components/theme-switcher'
 import { useRef } from 'react'
 import { Atom, Bot, Cloud, Code2, Database, Server } from 'lucide-react'
 import { PortfolioHeader } from '../components/portfolio-header'
@@ -47,6 +48,7 @@ export function PortfolioPage() {
         <ContactSection />
       </main>
       <PortfolioFooter />
+      <ThemeSwitcher />
     </div>
   )
 }
