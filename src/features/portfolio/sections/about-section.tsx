@@ -77,7 +77,7 @@ export function AboutSection() {
                 <MapPin size={15} /> {profile.location}
               </span>
               <span>
-                <Check size={15} /> Open to remote & hybrid
+                <Check size={15} /> Full-stack & conversational AI
               </span>
             </div>
             <Button asChild variant="outline">

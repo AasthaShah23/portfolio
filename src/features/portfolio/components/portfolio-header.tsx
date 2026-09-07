@@ -41,7 +41,8 @@ export function PortfolioHeader() {
           aria-label={`${profile.name}, home`}
           onClick={() => setOpen(false)}
         >
-          ananya<span>.</span>
+          {profile.firstName.toLowerCase()}
+          <span>.</span>
         </a>
         <nav
           className="flex gap-[30px] [&_a]:text-[12px] [&_a]:text-text-soft [&_a]:relative [&_a]:[transition:color_0.2s] [&_a:hover]:text-primary [&_a[aria-current]]:text-primary [&_a[aria-current]::after]:content-[''] [&_a[aria-current]::after]:absolute [&_a[aria-current]::after]:bottom-[-10px] [&_a[aria-current]::after]:left-[calc(50%_-_2px)] [&_a[aria-current]::after]:w-1 [&_a[aria-current]::after]:h-1 [&_a[aria-current]::after]:rounded-full [&_a[aria-current]::after]:bg-primary max-[800px]:gap-[18px] max-[800px]:[&_a]:text-[10px] max-[600px]:hidden"

@@ -1,18 +1,36 @@
-// Skills are owner-provided. Other profile and project content remains illustrative.
+// Profile and results transcribed or paraphrased from AasthaShah.pdf.
 export const profile = {
-  name: 'Ananya Sharma',
-  firstName: 'Ananya',
+  name: 'Aastha Shah',
+  firstName: 'Aastha',
   initials: 'AS',
-  role: 'Full Stack Developer & Conversational AI Engineer',
-  email: 'hello@example.com',
-  location: 'Bengaluru, India',
-  availability: 'Open to full-time & freelance opportunities',
+  role: 'Software Engineer · Full Stack & Conversational AI',
+  email: 'shahaastha2403@gmail.com',
+  phone: '+91 9998262717',
+  location: 'Ahmedabad, Gujarat',
+  availability: 'Let’s talk about full-stack and AI opportunities',
+  github: 'https://github.com/AasthaShah23',
+  linkedin: 'https://www.linkedin.com/in/aasthashah24/',
+  resume: '/AasthaShah.pdf',
   intro:
-    'I turn complex ideas into thoughtful web experiences and conversations that feel human. From the first pixel to the last API call.',
+    'I build scalable web applications and AI-powered experiences, with a focus on faster APIs, thoughtful interfaces, and features that are ready for real users.',
   about:
-    'I’m a full stack developer with 2+ years of experience connecting thoughtful interfaces with dependable systems. I care about the little details that make a product feel effortless.',
+    'I’m Aastha, a software engineer with 2+ years of experience across full-stack development and conversational AI. At Seaflux, I work from frontend interfaces to backend APIs, translating business requirements into production-ready features.',
   aboutMore:
-    'My sweet spot? Building end-to-end web applications and intelligent conversational experiences. I enjoy untangling a tricky problem, collaborating with good people, and shipping something useful.',
+    'My work spans performance optimization, secure data flows, and context-aware conversations. I also mentor interns through code reviews and technical guidance, building on my frontend experience at DioneApps.',
+  stats: [
+    {
+      value: '2+',
+      label: 'Years of experience',
+    },
+    {
+      value: '10+',
+      label: 'Production features delivered',
+    },
+    {
+      value: '∞',
+      label: 'Curiosity to keep learning',
+    },
+  ],
 }
 
 export const navigation = [
@@ -204,47 +222,36 @@ export const skillGroups: SkillGroup[] = [
 
 export const experiences = [
   {
-    role: 'Full Stack Developer',
-    specialty: 'Conversational AI',
-    company: 'Nova Digital',
-    type: 'Remote',
-    date: 'Jan 2025 — Present',
+    role: 'Software Engineer',
+    specialty: '',
+    company: 'Seaflux',
+    type: 'Ahmedabad, Gujarat · On-site',
+    date: 'Nov 2024 — Present',
     current: true,
-    description: 'Bringing web applications and intelligent conversations together.',
+    description: 'End-to-end product development, performance optimization, and conversational AI.',
     points: [
-      'Built and maintained React interfaces and Node.js services for customer-facing products.',
-      'Designed Dialogflow CX flows with contextual handoffs and backend integrations.',
-      'Partnered with designers and engineers to improve accessibility and release quality.',
+      'Leading full-stack development and optimizing frontend performance and backend APIs, reducing response time by 40%.',
+      'Collaborated with cross-functional teams to deliver 10+ production features from business requirements.',
+      'Built and managed conversational AI solutions, improving response handling efficiency by 35%.',
+      'Mentoring interns through code reviews, technical guidance, and foundational skills training.',
     ],
-    tags: ['React', 'Node.js', 'Dialogflow CX', 'Google Cloud'],
+    tags: ['Full-stack development', 'API optimization', 'Conversational AI', 'Mentoring'],
   },
   {
-    role: 'Full Stack Developer',
+    role: 'Frontend Developer',
     specialty: '',
-    company: 'Brightside Labs',
-    type: 'Hybrid',
-    date: 'Jul 2024 — Dec 2024',
+    company: 'DioneApps Pvt. Ltd.',
+    type: 'Ahmedabad, Gujarat · On-site',
+    date: 'Jan 2024 — Oct 2024',
     current: false,
-    description: 'Turning product ideas into dependable, everyday tools.',
+    description:
+      'Responsive web experiences, content workflows, and cross-platform desktop applications.',
     points: [
-      'Developed reusable UI components and REST APIs for an operations platform.',
-      'Improved database queries and built automated checks into the delivery workflow.',
+      'Improved mobile responsiveness, increasing mobile traffic by 40% and reducing bounce rate by 25%.',
+      'Integrated Sanity CMS, improving real-time content update efficiency by 30%.',
+      'Used Git for version control and Electron.js for cross-platform desktop applications.',
     ],
-    tags: ['TypeScript', 'PostgreSQL', 'Docker'],
-  },
-  {
-    role: 'Web Developer Intern',
-    specialty: '',
-    company: 'Pixel & Co.',
-    type: 'On-site',
-    date: 'Jan 2024 — Jun 2024',
-    current: false,
-    description: 'Where curiosity became a craft.',
-    points: [
-      'Created responsive landing pages and dashboards alongside a small product team.',
-      'Learned to ship with code reviews, version control, and a focus on the user.',
-    ],
-    tags: ['JavaScript', 'React', 'Git'],
+    tags: ['Frontend development', 'Sanity CMS', 'Electron.js', 'Git'],
   },
 ]
 
@@ -264,120 +271,107 @@ export type Project = {
 }
 export const projects: Project[] = [
   {
-    id: 'conversa',
-    name: 'Conversa',
-    eyebrow: 'A little more human',
-    description: 'An AI support companion that makes getting help feel like a conversation.',
-    category: 'Conversational AI',
-    tags: ['Dialogflow CX', 'Node.js', 'React'],
-    visual: 'chat',
+    id: 'fintrack-ai',
+    name: 'FinTrack AI',
+    eyebrow: 'A clearer view of everyday finances',
+    description:
+      'A smart expense tracking platform with transaction management, interactive dashboards, and AI-driven spending insights.',
+    category: 'Full stack',
+    tags: ['React.js', 'TanStack Query & Router', 'Redux Toolkit', 'FastAPI', 'PostgreSQL'],
+    visual: 'finance',
     color: 'sage',
     problem:
-      'Support teams need to answer repetitive questions while keeping complex issues personal.',
+      'Make expense tracking more efficient while giving users a clearer picture of their spending.',
     solution:
-      'A contextual virtual agent with a React chat interface, webhook integrations, and a clear handoff to a human.',
-    highlights: ['Multi-turn conversations', 'Context-aware responses', 'Human support handoff'],
+      'Built an end-to-end platform with expense categorization, secure RESTful APIs, authentication, optimized database queries, monthly reports, and budget alerts.',
+    highlights: [
+      '25% improvement in tracking efficiency',
+      '30% improvement in financial visibility',
+      'AI-driven spending insights and interactive dashboards',
+    ],
   },
   {
-    id: 'gather',
-    name: 'Gather',
-    eyebrow: 'Commerce, thoughtfully connected',
-    description: 'A calmer command center for products, orders, and everything in between.',
+    id: 'invoice-flow',
+    name: 'Invoice Flow',
+    eyebrow: 'Billing workflows, made simpler',
+    description:
+      'A multi-tenant billing system for secure organization-level data, invoice generation, and client transactions.',
     category: 'Full stack',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
+    tags: [
+      'React.js',
+      'TanStack Query & Router',
+      'Redux Toolkit',
+      'Node.js',
+      'Express.js',
+      'PostgreSQL',
+    ],
     visual: 'commerce',
     color: 'sand',
-    problem: 'Small teams often juggle disconnected tools to manage their online store.',
+    problem:
+      'Help multiple organizations manage isolated billing data and reduce manual invoice follow-ups.',
     solution:
-      'A unified dashboard with inventory views, order management, and an API backed by PostgreSQL.',
-    highlights: ['Role-based access', 'Inventory management', 'Responsive dashboard'],
+      'Designed a modular backend with role-based access control and automated email notifications, alongside PDF generation, payment tracking, and overdue alerts.',
+    highlights: [
+      '40% reduction in manual follow-ups',
+      '30% faster billing workflows',
+      'Multi-tenant data isolation and invoice lifecycle management',
+    ],
   },
   {
-    id: 'meetly',
-    name: 'Meetly',
-    eyebrow: 'Less back-and-forth. More connection.',
-    description: 'A conversational scheduling assistant that finds the right time, naturally.',
+    id: 'chatbot',
+    name: 'Chatbot',
+    eyebrow: 'Conversations with context',
+    description:
+      'A customized conversational interface powered by Dialogflow CX APIs on Google Cloud Platform.',
     category: 'Conversational AI',
-    tags: ['Dialogflow CX', 'Calendar API'],
-    visual: 'booking',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Dialogflow CX', 'GCP'],
+    visual: 'chat',
     color: 'lavender',
-    problem: 'Scheduling a simple appointment can take too many messages.',
+    problem:
+      'Create a chatbot experience with stronger engagement, accurate intent matching, and a clearly documented system design.',
     solution:
-      'A conversational booking flow that checks  and guides people to a confirmed appointment.',
-    highlights: ['Availability lookup', 'Conversation context', 'Booking confirmation'],
-  },
-  {
-    id: 'pulse',
-    name: 'Pulse',
-    eyebrow: 'Clarity in the numbers',
-    description: 'A focused analytics workspace that turns product data into useful insights.',
-    category: 'Full stack',
-    tags: ['TypeScript', 'React', 'Express'],
-    visual: 'analytics',
-    color: 'blue',
-    problem: 'Teams need a clear view of product performance without digging through raw data.',
-    solution:
-      'An interactive dashboard with filtered reports, accessible charts, and a reusable component system.',
-    highlights: ['Interactive reporting', 'Reusable charts', 'Server-side filtering'],
-  },
-  {
-    id: 'carely',
-    name: 'Carely',
-    eyebrow: 'A friendly first point of care',
-    description: 'A virtual front desk that helps people navigate appointments and FAQs.',
-    category: 'Conversational AI',
-    tags: ['Dialogflow CX', 'Webhooks'],
-    visual: 'health',
-    color: 'rose',
-    problem: 'Routine administrative questions can overwhelm a clinic’s front desk.',
-    solution:
-      'An administrative assistant for clinic information and scheduling, with escalation to staff.',
-    highlights: ['Appointment guidance', 'FAQ flows', 'Staff escalation'],
-  },
-  {
-    id: 'folio',
-    name: 'Folio',
-    eyebrow: 'Make room for better habits',
-    description: 'A personal finance space that makes everyday spending easier to understand.',
-    category: 'Full stack',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-    visual: 'finance',
-    color: 'peach',
-    problem: 'People want a simple way to see where their money goes each month.',
-    solution:
-      'A budget dashboard with spending categories, recurring transactions, and progress indicators.',
-    highlights: ['Budget categories', 'Monthly summaries', 'Transaction search'],
+      'Led frontend development using vanilla JavaScript, customized the chatbot UI, integrated Dialogflow CX APIs, and designed sequence and ER diagrams.',
+    highlights: [
+      '30% improvement in user interaction and session engagement',
+      '95% intent-matching accuracy',
+      '20% reduction in development rework through clearer diagrams',
+    ],
   },
 ]
 
 export const education = [
   {
-    title: 'B.Tech in Computer Science',
-    place: 'Sample Institute of Technology',
-    date: '2020 — 2024',
-    detail:
-      'A foundation in software engineering, data structures, and a lot of late-night curiosity.',
+    title: 'B.Tech in Information Technology',
+    place: 'LDRP Institute of Technology · Gandhinagar, Gujarat',
+    date: 'Jun 2020 — Apr 2024',
+    detail: 'CGPA: 8.28',
+  },
+]
+
+export const focusAreas = [
+  {
+    title: 'Full-stack engineering',
+    issuer: 'Production features, secure APIs, and multi-tenant systems',
   },
   {
-    title: 'Higher Secondary · Science',
-    place: 'Sample Public School',
-    date: '2018 — 2020',
-    detail: 'Where my interest in technology first took shape.',
+    title: 'Conversational AI',
+    issuer: 'Dialogflow CX, context-aware interactions, and GCP',
+  },
+  {
+    title: 'Performance & collaboration',
+    issuer: 'API optimization, code reviews, and intern mentoring',
   },
 ]
-export const certificates = [
-  { title: 'Conversational AI with Dialogflow CX', issuer: 'Google Cloud · Sample credential' },
-  { title: 'Full Stack Developer', issuer: 'Meta · Sample credential' },
-  { title: 'Cloud Practitioner', issuer: 'AWS · Sample credential' },
-]
+
+// Illustrative placeholders, not verified third-party recommendations.
 export const testimonials = [
   {
     quote:
-      'Ananya brings a rare mix of technical clarity and genuine care for the user. She turns an ambitious idea into something the whole team is proud to ship.',
+      'Aastha brings a rare mix of technical clarity and genuine care for the user. She turns an ambitious idea into something the whole team is proud to ship.',
     name: 'Priya Mehta',
     role: 'Product Manager, Nova Digital',
     initials: 'PM',
-    color: 'sage',
+    tone: 'sage',
   },
   {
     quote:
@@ -385,7 +379,7 @@ export const testimonials = [
     name: 'Alex Chen',
     role: 'Engineering Lead, Brightside Labs',
     initials: 'AC',
-    color: 'lavender',
+    tone: 'lavender',
   },
   {
     quote:
@@ -393,6 +387,6 @@ export const testimonials = [
     name: 'Sam Rivera',
     role: 'Product Designer, Pixel & Co.',
     initials: 'SR',
-    color: 'sand',
+    tone: 'sand',
   },
 ] as const
