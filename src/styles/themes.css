@@ -1,0 +1,64 @@
+/* Semantic palette tokens. Ivory is light mode; charcoal and sage is dark mode. */
+:root,
+:root[data-theme='ivory'] {
+  color-scheme: light;
+  --galaxy-bg: #14231d;
+  --galaxy-foreground: #e1eadf;
+  --galaxy-muted: #a5bba9;
+  --galaxy-border: #3c5043;
+  --galaxy-sidebar: #192a22;
+  --galaxy-surface: #1d3026;
+  --galaxy-hover: #2b4233;
+  --galaxy-accent: #a8c69e;
+  --galaxy-orbit-0: #86b6a2;
+  --galaxy-orbit-1: #87aaca;
+  --galaxy-orbit-2: #c8ac7a;
+  --galaxy-orbit-3: #b09ccb;
+  --galaxy-orbit-4: #7cbec2;
+  --galaxy-orbit-5: #bc9ca0;
+  --galaxy-orbit-6: #a5b781;
+  --background: #faf9f5;
+  --foreground: #253b36;
+  --primary: #204e43;
+  --primary-foreground: #ffffff;
+  --card: #fffefa;
+  --muted-foreground: #68736e;
+  --border: #e2e5dc;
+  --surface-soft: #f2f4ed;
+  --surface-tinted: #e7eddf;
+  --text-soft: #6c7864;
+  --text-strong: #3c5c4e;
+  --status: #6f9458;
+  --destructive: #b13f3f;
+}
+:root[data-theme='sage'] {
+  color-scheme: dark;
+  --galaxy-bg: #eef1e6;
+  --galaxy-foreground: #253b30;
+  --galaxy-muted: #586c5b;
+  --galaxy-border: #cad3c2;
+  --galaxy-sidebar: #e3e9da;
+  --galaxy-surface: #f6f8f0;
+  --galaxy-hover: #d3dfc8;
+  --galaxy-accent: #486b3c;
+  --galaxy-orbit-0: #3d7864;
+  --galaxy-orbit-1: #466e97;
+  --galaxy-orbit-2: #926e30;
+  --galaxy-orbit-3: #7d619b;
+  --galaxy-orbit-4: #337c82;
+  --galaxy-orbit-5: #955d6c;
+  --galaxy-orbit-6: #657d3f;
+  --background: #1b2421;
+  --foreground: #e7ece3;
+  --primary: #b0c9a4;
+  --primary-foreground: #1b2e22;
+  --card: #252f2a;
+  --muted-foreground: #b1bcb0;
+  --border: #3d4b40;
+  --surface-soft: #202b25;
+  --surface-tinted: #2e3c31;
+  --text-soft: #adbca4;
+  --text-strong: #d2dfc7;
+  --status: #b0c9a4;
+  --destructive: #f29797;
+}

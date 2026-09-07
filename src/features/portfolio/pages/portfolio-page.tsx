@@ -27,8 +27,8 @@ export function PortfolioPage() {
       <PortfolioHeader />
       <main id="main-content">
         <HeroSection />
-        <div className="technology-strip">
-          <div className="page-container">
+        <div className="border-y border-y-border bg-surface-soft py-6 [&_>_.page-container]:flex [&_>_.page-container]:justify-between [&_>_.page-container]:items-center [&_>_.page-container]:gap-5 [&_span]:flex [&_span]:gap-[9px] [&_span]:items-center [&_span]:whitespace-nowrap [&_span]:text-text-soft [&_span]:text-[12px] [&_span]:font-medium [&_.technology-caption]:text-[8px] [&_.technology-caption]:tracking-[1.6px] [&_.technology-caption]:text-text-soft [&_.technology-caption]:font-normal max-[1100px]:[&_.technology-caption]:hidden max-[800px]:[&_span]:text-[10px] max-[800px]:[&_span]:gap-[5px] max-[800px]:[&_svg]:w-[15px] max-[600px]:py-5 max-[600px]:[&_>_.page-container]:grid max-[600px]:[&_>_.page-container]:grid-cols-[repeat(3,_1fr)] max-[600px]:[&_>_.page-container]:[gap:18px_12px] max-[600px]:[&_span]:text-[10px] max-[600px]:[&_span]:justify-center max-[600px]:[&_span]:gap-[6px]">
+          <div className="page-container w-[min(1160px,_calc(100%_-_96px))] mx-auto max-[1100px]:w-[calc(100%_-_64px)] max-[600px]:w-[calc(100%_-_40px)]">
             <span className="technology-caption">MADE POSSIBLE WITH</span>
             {technologies.map(({ name, icon: Icon }) => (
               <span key={name}>
