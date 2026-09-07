@@ -1,4 +1,4 @@
-// Sample content only. Replace this file with your real profile before publishing.
+// Skills are owner-provided. Other profile and project content remains illustrative.
 export const profile = {
   name: 'Ananya Sharma',
   firstName: 'Ananya',
@@ -23,43 +23,184 @@ export const navigation = [
   { label: 'Contact', id: 'contact' },
 ]
 
-export const skills = [
-  { name: 'React', detail: 'Interfaces that feel right', icon: 'react', category: 'Development' },
-  { name: 'Node.js', detail: 'Reliable backend systems', icon: 'server', category: 'Development' },
+export type Skill = { name: string; level?: 'Basic' }
+export type SkillGroup = {
+  id: 'frontend' | 'backend' | 'languages' | 'databases' | 'cloud' | 'tools' | 'practices'
+  label: string
+  description: string
+  items: Skill[]
+}
+
+// Skills supplied by the portfolio owner. Only explicitly stated levels are shown.
+export const skillGroups: SkillGroup[] = [
   {
-    name: 'TypeScript',
-    detail: 'Confidence in every build',
-    icon: 'code',
-    category: 'Development',
+    id: 'frontend',
+    label: 'Frontend',
+    description: 'Interfaces, state management & desktop experiences.',
+    items: [
+      {
+        name: 'React.js',
+      },
+      {
+        name: 'Tailwind CSS',
+      },
+      {
+        name: 'Redux',
+      },
+      {
+        name: 'TanStack Query',
+      },
+      {
+        name: 'TanStack Router',
+      },
+      {
+        name: 'Next.js',
+      },
+      {
+        name: 'Sanity CMS',
+      },
+      {
+        name: 'Electron.js',
+        level: 'Basic',
+      },
+    ],
   },
   {
-    name: 'Dialogflow CX',
-    detail: 'Conversations with purpose',
-    icon: 'bot',
-    category: 'Conversational AI',
+    id: 'backend',
+    label: 'Backend',
+    description: 'Application services, APIs & media delivery.',
+    items: [
+      {
+        name: 'Node.js',
+      },
+      {
+        name: 'Express.js',
+      },
+      {
+        name: 'Nest.js',
+      },
+      {
+        name: 'FastAPI',
+      },
+      {
+        name: 'Cloudinary',
+      },
+    ],
   },
-  { name: 'PostgreSQL', detail: 'Well-structured data', icon: 'database', category: 'Development' },
-  { name: 'Google Cloud', detail: 'Room to scale', icon: 'cloud', category: 'Cloud & tools' },
   {
-    name: 'Docker',
-    detail: 'Consistent environments',
-    icon: 'container',
-    category: 'Cloud & tools',
+    id: 'languages',
+    label: 'Languages',
+    description: 'The foundations behind the work.',
+    items: [
+      {
+        name: 'JavaScript',
+      },
+      {
+        name: 'TypeScript',
+      },
+      {
+        name: 'Python',
+      },
+    ],
   },
   {
-    name: 'Git & CI/CD',
-    detail: 'A smoother path to production',
-    icon: 'git',
-    category: 'Cloud & tools',
+    id: 'databases',
+    label: 'Databases',
+    description: 'Relational & document-based data.',
+    items: [
+      {
+        name: 'MongoDB',
+      },
+      {
+        name: 'PostgreSQL',
+      },
+      {
+        name: 'MySQL',
+      },
+    ],
   },
   {
-    name: 'Conversational UX',
-    detail: 'A more human interaction',
-    icon: 'messages',
-    category: 'Conversational AI',
+    id: 'cloud',
+    label: 'Cloud & DevOps',
+    description: 'From local development to deployment.',
+    items: [
+      {
+        name: 'GCP',
+      },
+      {
+        name: 'AWS',
+      },
+      {
+        name: 'Docker',
+      },
+      {
+        name: 'CI/CD pipelines',
+      },
+      {
+        name: 'Vercel',
+      },
+    ],
   },
-] as const
-export type SkillCategory = (typeof skills)[number]['category']
+  {
+    id: 'tools',
+    label: 'Tools & collaboration',
+    description: 'Version control, design & AI-assisted development.',
+    items: [
+      {
+        name: 'Git',
+      },
+      {
+        name: 'GitHub',
+      },
+      {
+        name: 'GitLab',
+      },
+      {
+        name: 'Figma',
+      },
+      {
+        name: 'Claude',
+      },
+      {
+        name: 'Cursor',
+      },
+      {
+        name: 'Codex',
+      },
+    ],
+  },
+  {
+    id: 'practices',
+    label: 'Engineering practices',
+    description: 'The thinking that connects the stack.',
+    items: [
+      {
+        name: 'REST APIs',
+      },
+      {
+        name: 'WebSockets',
+      },
+      {
+        name: 'SEO Optimization',
+      },
+      {
+        name: 'System Design Fundamentals',
+      },
+      {
+        name: 'RBAC',
+      },
+      {
+        name: 'Performance Optimization',
+      },
+      {
+        name: 'Scrum',
+      },
+      {
+        name: 'Agile',
+      },
+    ],
+  },
+]
 
 export const experiences = [
   {
