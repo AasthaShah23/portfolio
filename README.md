@@ -2,7 +2,7 @@
 
 A responsive React + TypeScript portfolio inspired by the supplied wireframe. Warm ivory, deep teal, locally hosted typography, an AI-generated portrait, and subtle GSAP animation.
 
-All personal details, work history, projects, credentials, and testimonials are **sample content**. The real profile can be added later.
+The skills section uses the owner-provided stack, presented as 39 planets across seven interactive orbits. Personal details, work history, projects, credentials, and testimonials remain **sample content**. The real profile can be added later.
 
 ## Run locally
 
@@ -90,3 +90,5 @@ Use the sun/moon icon in the header to toggle **light mode** (Ivory & teal) and 
 ## Styling
 
 Portfolio components use Tailwind utilities directly in TSX, including responsive variants, hover/focus states, and reduced-motion variants. Global CSS is limited to Tailwind theme registration, font imports, keyframes, and document defaults. Color values stay in `src/styles/themes.css` so the header light/dark toggle can switch palettes consistently. Product preview palettes use static, typed Tailwind class maps in `components/preview-styles.ts`; avoid dynamically constructing utility class names.
+
+The skills galaxy uses native SVG and scoped GSAP motion. Select a planet or category to inspect its skills. Keyboard focus on a planet pauses motion; the play/pause control also works independently. Reduced-motion preferences keep the galaxy stationary.
