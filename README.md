@@ -1,8 +1,8 @@
-# Ananya — Portfolio
+# Aastha Shah — Portfolio
 
 A responsive React + TypeScript portfolio inspired by the supplied wireframe. Warm ivory, deep teal, locally hosted typography, an AI-generated portrait, and subtle GSAP animation.
 
-The skills section uses the owner-provided stack, presented as 39 planets across seven interactive orbits. Personal details, work history, projects, credentials, and testimonials remain **sample content**. The real profile can be added later.
+Profile, employment, projects, education, and reported results are based on the supplied AasthaShah.pdf résumé. Skills also reflect the owner-provided list. The portrait remains AI-generated, and project visuals are labeled interface illustrations.
 
 ## Run locally
 
@@ -30,7 +30,7 @@ src/
   features/
     portfolio/
       components/            # Navigation, footer, headings, product mockups
-      data/portfolio.ts      # Typed sample profile and content
+      data/portfolio.ts      # Résumé-backed profile and content
       hooks/                 # Scoped GSAP section animation
       pages/                 # Page composition
       sections/              # All portfolio sections in one folder
@@ -48,21 +48,23 @@ src/
   styles/themes.css          # Light/dark color tokens
 public/
   images/portrait.png         # AI-generated placeholder portrait
-  sample-resume.pdf           # Clearly labeled sample résumé
+  AasthaShah.pdf              # Original supplied résumé
   favicon.svg
  tests/                      # Browser interaction tests
 ```
 
 Use `@/` for imports from `src`. Keep feature-only code inside its feature. All portfolio sections live in the same `sections` directory. The page component only composes those sections.
 
-## Replace the sample content
+## Content maintenance
 
-1. Update `src/features/portfolio/data/portfolio.ts` with the real profile, skills, work, education, projects, and approved testimonials.
-2. Replace `public/images/portrait.png` and `public/sample-resume.pdf`; update portrait alt text and the résumé label.
-3. Update the wordmark in `portfolio-header.tsx` and `portfolio-footer.tsx`, hero stats in `hero-section.tsx`, and page title/description in `index.html`.
-4. Replace project mockups in `components/project-preview.tsx` with real screenshots when available. Each project already has a working case-study dialog.
-5. Connect the social profiles and contact destination in `contact-section.tsx`. The form validates and previews locally; it deliberately does not send or store messages. Email currently uses `hello@example.com`.
-6. Replace the sample credential/testimonial labels and footer demo notice when the real content is verified.
+- Update profile, roles, project results, education, and skills in `src/features/portfolio/data/portfolio.ts`.
+- The original résumé is served at `public/AasthaShah.pdf`. Replace it when the résumé changes.
+- The header, footer, contact details, and hero metrics read from the shared profile data.
+- GitHub, LinkedIn, email, and telephone links use the supplied résumé details.
+- Project graphics are illustrative, not production screenshots. Replace them when real screenshots are available.
+- The “Kind words” section contains clearly labeled illustrative testimonials to replace with real recommendations. No unprovided certifications are claimed.
+- The contact form still previews locally and does not send messages. Visitors can use the real email link to contact Aastha directly.
+- The AI-generated portrait remains a placeholder until a real photograph is supplied.
 
 ## Behavior and accessibility
 

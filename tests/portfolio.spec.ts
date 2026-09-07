@@ -19,19 +19,19 @@ test('page renders without errors, loads portrait, and fits the viewport', async
 test('projects filter and case studies support keyboard dismissal', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/#projects')
-  await expect(page.locator('.project-card')).toHaveCount(6)
-  await page.getByRole('button', { name: 'Full stack', exact: true }).click()
   await expect(page.locator('.project-card')).toHaveCount(3)
-  await page.getByRole('button', { name: 'View Gather case study' }).click()
+  await page.getByRole('button', { name: 'Full stack', exact: true }).click()
+  await expect(page.locator('.project-card')).toHaveCount(2)
+  await page.getByRole('button', { name: 'View Invoice Flow case study' }).click()
   await expect(page.getByRole('dialog')).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Gather', exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Invoice Flow', exact: true })).toBeVisible()
   await page.keyboard.press('Escape')
   await expect(page.getByRole('dialog')).toBeHidden()
-  await expect(page.getByRole('button', { name: 'View Gather case study' })).toBeFocused()
+  await expect(page.getByRole('button', { name: 'View Invoice Flow case study' })).toBeFocused()
   await page.getByRole('button', { name: 'Conversational AI', exact: true }).click()
-  await expect(page.locator('.project-card')).toHaveCount(3)
+  await expect(page.locator('.project-card')).toHaveCount(1)
   await page.getByRole('button', { name: 'All work' }).click()
-  await expect(page.locator('.project-card')).toHaveCount(6)
+  await expect(page.locator('.project-card')).toHaveCount(3)
 })
 
 test('contact validates and previews without sending a request', async ({ page }) => {
@@ -80,12 +80,12 @@ test('navigation and reduced-motion rendering work', async ({ page, isMobile }) 
   await expect(page).toHaveURL(/\/#about$/)
 })
 
-test('sample resume is a downloadable PDF', async ({ page }) => {
+test('resume is a downloadable PDF', async ({ page }) => {
   await page.goto('/')
   const download = page.waitForEvent('download')
-  await page.getByRole('link', { name: 'Sample résumé' }).click()
-  expect((await download).suggestedFilename()).toBe('sample-resume.pdf')
-  const response = await page.request.get('/sample-resume.pdf')
+  await page.getByRole('link', { name: 'Download résumé' }).click()
+  expect((await download).suggestedFilename()).toBe('AasthaShah.pdf')
+  const response = await page.request.get('/AasthaShah.pdf')
   expect(response.headers()['content-type']).toContain('application/pdf')
   expect((await response.body()).subarray(0, 4).toString()).toBe('%PDF')
 })
@@ -126,4 +126,26 @@ test('retired blue preference falls back to light mode', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'ivory')
   await expect(page.getByRole('button', { name: 'Switch to dark mode' })).toBeVisible()
+})
+
+test('real profile and contact links replace sample details', async ({ page }) => {
+  await page.goto('/')
+  await expect(page).toHaveTitle(/Aastha Shah/)
+  await expect(page.getByRole('link', { name: 'GitHub profile' })).toHaveAttribute(
+    'href',
+    'https://github.com/AasthaShah23',
+  )
+  await expect(page.getByRole('link', { name: 'LinkedIn profile' })).toHaveAttribute(
+    'href',
+    'https://www.linkedin.com/in/aasthashah24/',
+  )
+  await expect(page.getByRole('link', { name: 'shahaastha2403@gmail.com' })).toHaveAttribute(
+    'href',
+    'mailto:shahaastha2403@gmail.com',
+  )
+  await expect(page.locator('#experience')).toContainText('Seaflux')
+  await expect(page.locator('#experience')).toContainText('DioneApps')
+  await expect(page.locator('#education')).toContainText('8.28')
+  await expect(page.locator('body')).not.toContainText('Ananya')
+  await expect(page.locator('body')).not.toContainText('Sample credential')
 })

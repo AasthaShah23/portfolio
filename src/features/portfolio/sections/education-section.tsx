@@ -1,6 +1,6 @@
 import { Award, GraduationCap, BookOpen } from 'lucide-react'
 import { SectionHeading } from '../components/section-heading'
-import { certificates, education } from '../data/portfolio'
+import { focusAreas, education } from '../data/portfolio'
 export function EducationSection() {
   return (
     <section
@@ -32,9 +32,9 @@ export function EducationSection() {
           </div>
           <div data-reveal>
             <h3 className="flex items-center gap-[10px] text-[14px] font-semibold mb-5 [&_>_svg]:text-text-soft">
-              <Award size={19} /> Certifications
+              <Award size={19} /> Focus areas
             </h3>
-            {certificates.map((item) => (
+            {focusAreas.map((item) => (
               <article
                 className="p-[17px] mb-[10px] border border-border rounded-[6px] flex gap-[13px] items-center bg-card [&_h4]:text-[11px] [&_h4]:font-semibold [&_p]:text-[9px] [&_p]:text-text-soft [&_p]:mt-[3px] max-[600px]:p-4 max-[600px]:[&_h4]:text-[11px] max-[600px]:[&_p]:text-[9px]"
                 key={item.title}

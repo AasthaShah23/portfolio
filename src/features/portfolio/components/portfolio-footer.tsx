@@ -9,7 +9,8 @@ export function PortfolioFooter() {
             href="#home"
             className="font-heading text-[26px] tracking-[-1.3px] font-bold [&_>_span]:text-text-soft max-[600px]:text-[24px]"
           >
-            ananya<span>.</span>
+            {profile.firstName.toLowerCase()}
+            <span>.</span>
           </a>
           <p>
             Built with intention. And a little <Heart size={12} />.
@@ -22,7 +23,6 @@ export function PortfolioFooter() {
           <span>
             © {new Date().getFullYear()} {profile.name}
           </span>
-          <span>Demo portfolio · Sample content & AI-generated portrait</span>
           <a href="#contact">Let’s make something meaningful ↗</a>
         </div>
       </div>

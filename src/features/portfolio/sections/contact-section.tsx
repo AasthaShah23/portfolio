@@ -1,5 +1,14 @@
 import { useState, type FormEvent } from 'react'
-import { ArrowUpRight, Check, Copy, Code2, BriefcaseBusiness, Mail, MapPin } from 'lucide-react'
+import {
+  ArrowUpRight,
+  Check,
+  Copy,
+  Code2,
+  BriefcaseBusiness,
+  Mail,
+  MapPin,
+  Phone,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -9,7 +18,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from '@/components/ui/dialog'
 import { SectionHeading } from '../components/section-heading'
 import { profile } from '../data/portfolio'
@@ -64,14 +72,20 @@ export function ContactSection() {
           >
             <div>
               <Mail size={19} />
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              <a className="min-w-0 break-all" href={`mailto:${profile.email}`}>
+                {profile.email}
+              </a>
               <button type="button" onClick={copyEmail} aria-label="Copy email address">
                 {copyStatus === 'Email copied' ? <Check size={15} /> : <Copy size={15} />}
               </button>
             </div>
             <div>
+              <Phone size={19} />
+              <a href={'tel:' + profile.phone.replaceAll(' ', '')}>{profile.phone}</a>
+            </div>
+            <div>
               <MapPin size={19} />
-              <span>{profile.location} · Open to remote</span>
+              <span>{profile.location}</span>
             </div>
             <span role="status" className="text-[10px] text-text-strong min-h-[15px]">
               {copyStatus}
@@ -82,27 +96,21 @@ export function ContactSection() {
             data-reveal
           >
             {[
-              { name: 'GitHub', icon: Code2 },
-              { name: 'LinkedIn', icon: BriefcaseBusiness },
-            ].map(({ name, icon: Icon }) => (
-              <Dialog key={name}>
-                <DialogTrigger asChild>
-                  <button type="button" aria-label={`${name} profile`}>
-                    <Icon size={18} />
-                    <ArrowUpRight size={12} />
-                  </button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>{name} profile</DialogTitle>
-                    <DialogDescription>
-                      This is a sample portfolio. The real {name} profile will be connected when the
-                      personal details are added.
-                    </DialogDescription>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
-            ))}
+              { name: 'GitHub', icon: Code2, url: profile.github },
+              { name: 'LinkedIn', icon: BriefcaseBusiness, url: profile.linkedin },
+            ].map(({ name, icon: Icon, url }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name + ' profile'}
+                className="inline-flex items-center gap-2 rounded-md border border-border bg-surface-soft p-3 text-text-strong hover:bg-surface-tinted"
+              >
+                <Icon size={18} aria-hidden="true" />
+                <ArrowUpRight size={12} aria-hidden="true" />
+              </a>
+            ))}{' '}
           </div>
           <div className="flex items-center gap-2 text-[9px] text-text-soft mt-[25px] max-[800px]:text-[8px] max-[800px]:leading-[1.8] max-[600px]:text-[9px]">
             <span className="status-dot inline-block w-[6px] h-[6px] rounded-full bg-status shrink-0 shadow-[0_0_0_3px_#71955812]" />{' '}
@@ -174,7 +182,9 @@ export function ContactSection() {
           <Button type="submit" size="lg" className="w-full justify-between text-[11px]">
             Preview message <ArrowUpRight aria-hidden="true" />
           </Button>
-          <p className="form-note">Demo form — preview only. No message will be sent.</p>
+          <p className="form-note">
+            Preview only — no message is sent. You can also email me directly.
+          </p>
         </form>
       </div>
       <Dialog

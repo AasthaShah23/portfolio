@@ -14,7 +14,7 @@ export function HeroSection() {
           className="text-[10px] tracking-[0.35px] inline-flex items-center gap-[9px] pt-[6px] pr-[11px] pb-[6px] pl-[11px] border border-border rounded-[20px] bg-surface-tinted mb-[30px] text-text-strong max-[600px]:text-[9px] max-[600px]:mb-6"
         >
           <span className="status-dot inline-block w-[6px] h-[6px] rounded-full bg-status shrink-0 shadow-[0_0_0_3px_#71955812]" />{' '}
-          Available for new opportunities
+          Software Engineer at Seaflux
         </div>
         <p
           data-reveal
@@ -34,7 +34,7 @@ export function HeroSection() {
           data-reveal
           className="text-[11px] font-semibold mt-[25px] tracking-[0.15px] [&_>_span]:text-text-soft [&_>_span]:mx-[3px] max-[1100px]:text-[10px] max-[800px]:max-w-65 max-[800px]:leading-[1.8] max-[600px]:max-w-[none] max-[600px]:text-[10px] max-[600px]:mt-5"
         >
-          Full Stack Developer <span> & </span> Conversational AI Engineer
+          {profile.role}
         </p>
         <p
           data-reveal
@@ -52,31 +52,21 @@ export function HeroSection() {
             </a>
           </Button>
           <Button asChild variant="ghost" size="lg">
-            <a href="/sample-resume.pdf" download>
-              Sample résumé <Download aria-hidden="true" />
+            <a href={profile.resume} download>
+              Download résumé <Download aria-hidden="true" />
             </a>
           </Button>
         </div>
         <div
           data-reveal
-          className="flex gap-[30px] mt-[37px] pt-[25px] border-t border-t-border max-w-110 [&_>_div_+_div]:border-l [&_>_div_+_div]:border-l-border [&_>_div_+_div]:pl-[30px] [&_strong]:font-heading [&_strong]:text-[26px] [&_strong]:font-semibold [&_strong]:leading-[1] [&_strong_>_span]:text-text-soft [&_strong_>_span]:text-[20px] [&_p]:text-[9px] [&_p]:mt-2 [&_p]:text-muted-foreground [&_p]:whitespace-nowrap max-[1100px]:gap-[18px] max-[1100px]:[&_>_div_+_div]:pl-[18px] max-[800px]:gap-[14px] max-[800px]:[&_>_div_+_div]:pl-[14px] max-[800px]:[&_strong]:text-[22px] max-[800px]:[&_p]:text-[7px] max-[600px]:max-w-[370px] max-[600px]:justify-between max-[600px]:gap-[13px] max-[600px]:mt-[25px] max-[600px]:pt-[21px] max-[600px]:[&_>_div_+_div]:pl-[19px] max-[600px]:[&_strong]:text-[25px] max-[600px]:[&_p]:text-[8px] max-[360px]:[&_p]:text-[7px] max-[360px]:[&_>_div_+_div]:pl-3"
+          className="flex gap-[30px] mt-[37px] pt-[25px] border-t border-t-border max-w-110 [&_>_div_+_div]:border-l [&_>_div_+_div]:border-l-border [&_>_div_+_div]:pl-[30px] [&_strong]:font-heading [&_strong]:text-[26px] [&_strong]:font-semibold [&_strong]:leading-[1] [&_strong_>_span]:text-text-soft [&_strong_>_span]:text-[20px] [&_p]:text-[9px] [&_p]:mt-2 [&_p]:text-muted-foreground [&_p]:max-w-28 max-[1100px]:gap-[18px] max-[1100px]:[&_>_div_+_div]:pl-[18px] max-[800px]:gap-[14px] max-[800px]:[&_>_div_+_div]:pl-[14px] max-[800px]:[&_strong]:text-[22px] max-[800px]:[&_p]:text-[7px] max-[600px]:max-w-[370px] max-[600px]:justify-between max-[600px]:gap-[13px] max-[600px]:mt-[25px] max-[600px]:pt-[21px] max-[600px]:[&_>_div_+_div]:pl-[19px] max-[600px]:[&_strong]:text-[25px] max-[600px]:[&_p]:text-[8px] max-[360px]:[&_p]:text-[7px] max-[360px]:[&_>_div_+_div]:pl-3"
         >
-          <div>
-            <strong>
-              2<span>+</span>
-            </strong>
-            <p>Years of experience</p>
-          </div>
-          <div>
-            <strong>
-              12<span>+</span>
-            </strong>
-            <p>Projects brought to life</p>
-          </div>
-          <div>
-            <strong>∞</strong>
-            <p>Curiosity to keep learning</p>
-          </div>
+          {profile.stats.map((stat) => (
+            <div key={stat.label}>
+              <strong>{stat.value}</strong>
+              <p>{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
       <div

@@ -58,7 +58,7 @@ export function ProjectPreview({ project }: { project: Project }) {
       ) : project.visual === 'booking' ? (
         <div className="text-[#655977] scheme-light w-51 pt-[15px] pr-[19px] pb-[15px] pl-[19px] bg-[#fffefa] shadow-[0_10px_20px_#44385b16] rounded-[7px] [transform:rotate(-4deg)] mb-[17px] [&_>_p]:text-[11px] [&_>_p]:font-medium [&_>_p]:leading-[1.4] [&_>_p]:mt-2 max-[1100px]:w-[181px] max-[1100px]:pt-3 max-[1100px]:pr-4 max-[1100px]:pb-3 max-[1100px]:pl-4 max-[800px]:w-[195px] max-[600px]:w-[205px] max-[600px]:pt-4 max-[600px]:pr-[19px] max-[600px]:pb-4 max-[600px]:pl-[19px]">
           <div className="flex items-center gap-[5px] text-[10px] font-semibold [&_>_span]:ml-auto [&_>_span]:text-[#a09bb8]">
-            <CalendarDays size={15} /> meetly<span>✦</span>
+            <CalendarDays size={15} /> Scheduling<span>✦</span>
           </div>
           <p>
             Good things start
@@ -106,18 +106,18 @@ export function ProjectPreview({ project }: { project: Project }) {
             <p className="text-[6px] mt-[6px] text-[#8a9482]">
               {project.visual === 'finance'
                 ? 'A little clarity for your money.'
-                : 'Looking good, Ananya.'}
+                : 'Your billing overview.'}
             </p>
             <div className="flex gap-[6px] mt-2 [&_>_div]:bg-[#f5f6ee] [&_>_div]:border [&_>_div]:border-[#eeefe7] [&_>_div]:p-[7px] [&_>_div]:flex-1 [&_>_div]:rounded-[3px] [&_>_div]:relative [&_span]:block [&_span]:text-[5px] [&_span]:text-[#859078] [&_strong]:text-[12px] [&_small]:text-[4px] [&_small]:text-[#668750] [&_small]:ml-1">
               <div>
-                <span>{project.visual === 'commerce' ? 'Revenue' : 'Overview'}</span>
-                <strong>{project.visual === 'finance' ? '₹42,850' : '24,680'}</strong>
-                <small>↗ 12.8%</small>
+                <span>{project.visual === 'commerce' ? 'Invoices' : 'Overview'}</span>
+                <strong>{project.visual === 'finance' ? '—' : '—'}</strong>
+                <small>Overview</small>
               </div>
               <div>
-                <span>{project.visual === 'commerce' ? 'Orders' : 'This month'}</span>
-                <strong>{project.visual === 'finance' ? '₹18,240' : '1,284'}</strong>
-                <small>↗ 8.2%</small>
+                <span>{project.visual === 'commerce' ? 'Payments' : 'This month'}</span>
+                <strong>{project.visual === 'finance' ? '—' : '—'}</strong>
+                <small>Summary</small>
               </div>
             </div>
             <div className="mt-2 border border-[#eeefe7] rounded-[4px] p-2">
@@ -145,7 +145,7 @@ export function ProjectPreview({ project }: { project: Project }) {
         </div>
       )}
       <span className="absolute bottom-3 text-[7px] tracking-[0.5px] text-[#66705e]">
-        {project.eyebrow}
+        Interface illustration
       </span>
     </div>
   )

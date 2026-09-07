@@ -49,7 +49,7 @@ export function ProjectsSection() {
               onClick={() => setFilter(item)}
             >
               {item}
-              {item === 'All work' && <span>06</span>}
+              {item === 'All work' && <span>{projects.length.toString().padStart(2, '0')}</span>}
             </button>
           ))}
         </div>
@@ -88,7 +88,7 @@ ____box-shadow_0.25s] bg-card motion-safe:animate-card-enter hover:[transform:tr
                   <DialogContent className="max-h-[90svh] overflow-y-auto overscroll-contain [&_.project-preview]:h-[230px] [&_.project-preview]:rounded-[6px] [&_.project-preview]:shrink-0 max-[600px]:p-[22px]">
                     <DialogHeader>
                       <p className="eyebrow flex items-center gap-3 uppercase tracking-[2px] text-[10px] font-semibold text-text-strong [&_>_span]:text-text-soft [&_>_span]:text-[9px] [&_>_span]:tracking-[0] [&_>_span]:border [&_>_span]:border-border [&_>_span]:pt-[2px] [&_>_span]:pr-[5px] [&_>_span]:pb-[2px] [&_>_span]:pl-[5px] [&_>_span]:leading-[1.3] [&_>_span]:rounded-[3px] max-[600px]:text-[9px] max-[600px]:tracking-[1.6px]">
-                        Sample case study
+                        Project overview
                       </p>
                       <DialogTitle className="font-heading text-[30px] tracking-[-1px] mt-[6px]">
                         {project.name}
@@ -116,7 +116,8 @@ ____box-shadow_0.25s] bg-card motion-safe:animate-card-enter hover:[transform:tr
                         ))}
                       </div>
                       <p className="demo-note">
-                        Illustrative project. Real results and live links will be added later.
+                        Results are reported in my résumé. The visual is an interface illustration,
+                        not a production screenshot.
                       </p>
                     </div>
                   </DialogContent>
