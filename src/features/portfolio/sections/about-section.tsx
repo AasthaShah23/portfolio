@@ -29,11 +29,12 @@ export function AboutSection() {
                 <span className="text-[#d3b4c6]">const</span> developer = {'{'}
               </p>
               <p className="pl-[17px]">
-                name: <span className="text-[#c2dca0]">'{profile.firstName}'</span>,
+                name: <span className="text-[#c2dca0]">'{profile.name}'</span>,
               </p>
               <p className="pl-[17px]">
-                focus: [<span className="text-[#c2dca0]">'web'</span>,{' '}
-                <span className="text-[#c2dca0]">'conversations'</span>],
+                focus: [<span className="text-[#c2dca0]">'Full-Stack'</span>,{' '}
+                <span className="text-[#c2dca0]">'Real-Time Systems'</span>,{' '}
+                <span className="text-[#c2dca0]">'Conversational AI'</span>],
               </p>
               <p className="pl-[17px]">
                 mindset: <span className="text-[#c2dca0]">'always learning'</span>,
