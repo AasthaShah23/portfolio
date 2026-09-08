@@ -30,6 +30,10 @@
   --text-strong: #3c5c4e;
   --status: #6f9458;
   --destructive: #b13f3f;
+  --toast-background: #20332e;
+  --toast-foreground: #f7faf7;
+  --toast-error-background: #a43636;
+  --toast-success-background: #285f50;
 }
 :root[data-theme='sage'] {
   color-scheme: dark;
@@ -61,4 +65,8 @@
   --text-strong: #d2dfc7;
   --status: #b0c9a4;
   --destructive: #f29797;
+  --toast-background: #111a17;
+  --toast-foreground: #f2f6f1;
+  --toast-error-background: #922f2f;
+  --toast-success-background: #315f4f;
 }

@@ -81,7 +81,7 @@ identifiers; like every `VITE_` variable, they are included in the browser bundl
 - `/` contains the entire portfolio; `/about` redirects to the About section.
 - Sticky desktop navigation and a mobile disclosure menu with Escape support.
 - Project category filtering, accessible Radix/shadcn dialogs, and keyboard focus restoration.
-- Labeled native form validation, whitespace rejection, submission feedback, and bot protection.
+- Labeled native form validation, whitespace rejection, toast submission feedback, and bot protection.
 - GSAP section reveals and portrait motion are scoped and cleaned up on unmount.
 - Reduced-motion preferences disable reveals, floating motion, and smooth scrolling.
 - Fonts are bundled locally; no external font requests are required.
