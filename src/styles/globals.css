@@ -36,6 +36,10 @@
   --color-text-soft: var(--text-soft);
   --color-text-strong: var(--text-strong);
   --color-status: var(--status);
+  --color-toast: var(--toast-background);
+  --color-toast-foreground: var(--toast-foreground);
+  --color-toast-error: var(--toast-error-background);
+  --color-toast-success: var(--toast-success-background);
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 10px;

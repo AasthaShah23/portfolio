@@ -50,12 +50,35 @@ test('contact validates and sends through Web3Forms', async ({ page }) => {
     .getByLabel('Your message', { exact: true })
     .fill('I would love to discuss a role with you.')
   await page.getByRole('button', { name: 'Send message' }).click()
-  await expect(page.locator('#contact .form-note')).toContainText('sent successfully')
+  await expect(page.locator('[data-slot="toast-root"]')).toContainText('sent successfully')
   expect(submission.name).toBe('Test Recruiter')
   expect(submission.email).toBe('recruiter@example.com')
   expect(submission.subject).toBe('A full-stack opportunity')
   expect(submission.message).toBe('I would love to discuss a role with you.')
   expect(submission.access_key).toBeTruthy()
+})
+
+test('contact shows Web3Forms errors in a toast', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.route('https://api.web3forms.com/submit', async (route) => {
+    await route.fulfill({
+      status: 429,
+      json: { success: false, message: 'Please wait before trying again.' },
+    })
+  })
+  await page.goto('/#contact')
+  await page.getByLabel('Your name', { exact: true }).fill('Test Recruiter')
+  await page.getByLabel('Email address', { exact: true }).fill('recruiter@example.com')
+  await page.getByLabel('What’s on your mind?').fill('A full-stack opportunity')
+  await page.getByLabel('Your message', { exact: true }).fill('Could we schedule an interview?')
+  await page.getByRole('button', { name: 'Send message' }).click()
+
+  const toast = page.locator('[data-slot="toast-root"]')
+  await expect(toast).toContainText('Message not sent')
+  await expect(toast).toContainText('Please wait before trying again.')
+  await expect(page.getByLabel('Your message', { exact: true })).toHaveValue(
+    'Could we schedule an interview?',
+  )
 })
 
 test('navigation and reduced-motion rendering work', async ({ page, isMobile }) => {
