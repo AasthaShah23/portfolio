@@ -12,32 +12,67 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
 import { SectionHeading } from '../components/section-heading'
 import { profile } from '../data/portfolio'
 
-type MessagePreview = { name: string; email: string; subject: string; message: string }
+const WEB3FORMS_ENDPOINT = import.meta.env.VITE_WEB3FORMS_ENDPOINT
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+
+type SubmitStatus = 'idle' | 'sending' | 'success' | 'error'
+
 export function ContactSection() {
-  const [preview, setPreview] = useState<MessagePreview | null>(null)
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
+  const [submitMessage, setSubmitMessage] = useState('')
   const [copyStatus, setCopyStatus] = useState('')
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    const values = Object.fromEntries(
-      ['name', 'email', 'subject', 'message'].map((key) => [
-        key,
-        String(data.get(key) ?? '').trim(),
-      ]),
-    ) as MessagePreview
-    if (!values.name || !values.subject || !values.message) return
-    setPreview(values)
+
+    if (!WEB3FORMS_ENDPOINT || !WEB3FORMS_ACCESS_KEY) {
+      setSubmitStatus('error')
+      setSubmitMessage(`The contact form is unavailable. Please email me at ${profile.email}.`)
+      return
+    }
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const payload = {
+      ...Object.fromEntries(formData),
+      access_key: WEB3FORMS_ACCESS_KEY,
+      from_name: 'Aastha Shah Portfolio',
+    }
+
+    setSubmitStatus('sending')
+    setSubmitMessage('Sending your message…')
+
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      const result = (await response.json()) as { success?: boolean; message?: string }
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to send your message.')
+      }
+
+      form.reset()
+      setSubmitStatus('success')
+      setSubmitMessage('Thank you — your message has been sent successfully.')
+    } catch (error) {
+      setSubmitStatus('error')
+      setSubmitMessage(
+        error instanceof Error
+          ? error.message
+          : `Something went wrong. Please email me at ${profile.email}.`,
+      )
+    }
   }
+
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(profile.email)
@@ -122,6 +157,14 @@ export function ContactSection() {
           onSubmit={submit}
           data-reveal
         >
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
           <h3>
             Say hello <span>↗</span>
           </h3>
@@ -179,42 +222,30 @@ export function ContactSection() {
               }
             />
           </div>
-          <Button type="submit" size="lg" className="w-full justify-between text-[11px]">
-            Preview message <ArrowUpRight aria-hidden="true" />
+          <Button
+            type="submit"
+            size="lg"
+            className="w-full justify-between text-[11px]"
+            disabled={submitStatus === 'sending'}
+          >
+            {submitStatus === 'sending' ? 'Sending…' : 'Send message'}
+            <ArrowUpRight aria-hidden="true" />
           </Button>
-          <p className="form-note">
-            Preview only — no message is sent. You can also email me directly.
+          <p
+            role="status"
+            aria-live="polite"
+            className={`form-note min-h-3 ${
+              submitStatus === 'success'
+                ? 'text-status!'
+                : submitStatus === 'error'
+                  ? 'text-destructive!'
+                  : ''
+            }`}
+          >
+            {submitMessage || 'Your message will be sent securely to my inbox.'}
           </p>
         </form>
       </div>
-      <Dialog
-        open={preview !== null}
-        onOpenChange={(open) => {
-          if (!open) setPreview(null)
-        }}
-      >
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Your message preview</DialogTitle>
-            <DialogDescription>
-              Nothing has been sent. A contact destination will be connected with the real portfolio
-              details.
-            </DialogDescription>
-          </DialogHeader>
-          {preview && (
-            <dl className="text-[12px] max-h-[55svh] overflow-auto [&_dt]:font-semibold [&_dt]:mt-[14px] [&_dd]:text-muted-foreground [&_dd]:whitespace-pre-wrap [&_dd]:[overflow-wrap:anywhere] [&_dd]:mt-[5px] max-[600px]:text-[12px]">
-              <dt>From</dt>
-              <dd>
-                {preview.name} · {preview.email}
-              </dd>
-              <dt>Subject</dt>
-              <dd>{preview.subject}</dd>
-              <dt>Message</dt>
-              <dd>{preview.message}</dd>
-            </dl>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   )
 }
