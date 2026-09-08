@@ -343,8 +343,20 @@ export const education = [
   {
     title: 'B.Tech in Information Technology',
     place: 'LDRP Institute of Technology · Gandhinagar, Gujarat',
-    date: 'Jun 2020 — Apr 2024',
+    date: 'June 2020 — April 2024',
     detail: 'CGPA: 8.28',
+  },
+  {
+    title: '12th (HSC)',
+    place: 'NV Patel School · Ahmedabad, Gujarat',
+    date: 'April 2019 - March 2020',
+    detail: 'Percentage: 62.76%',
+  },
+  {
+    title: '10th (SSC)',
+    place: 'NV Patel School · Ahmedabad, Gujarat',
+    date: 'April 2017 - March 2018',
+    detail: 'Percentage: 79.33%',
   },
 ]
 
@@ -363,20 +375,22 @@ export const focusAreas = [
   },
 ]
 
-// Illustrative placeholders, not verified third-party recommendations.
+// Zeel’s recommendation is condensed from the supplied LinkedIn text; remaining entries are placeholders.
 export const testimonials = [
   {
     quote:
-      'Aastha brings a rare mix of technical clarity and genuine care for the user. She turns an ambitious idea into something the whole team is proud to ship.',
-    name: 'Priya Mehta',
-    role: 'Product Manager, Nova Digital',
-    initials: 'PM',
+      'Aastha delivers clean, maintainable frontend solutions with strong React.js, Electron.js, and CMS expertise. She takes ownership, communicates clearly, and is a reliable, collaborative teammate.',
+    name: 'Zeel Patel',
+    role: 'Teammate at DioneApps',
+    href: 'https://www.linkedin.com/in/zeel-motka/',
+    initials: 'ZP',
     tone: 'sage',
   },
   {
     quote:
       'Thoughtful questions, clean code, and a real sense of ownership. Working with her made even the complex parts of our project feel manageable.',
     name: 'Alex Chen',
+    href: null,
     role: 'Engineering Lead, Brightside Labs',
     initials: 'AC',
     tone: 'lavender',
@@ -385,6 +399,7 @@ export const testimonials = [
     quote:
       'She understands that a great experience is in the details. Our conversational flow became simpler, warmer, and so much more useful.',
     name: 'Sam Rivera',
+    href: null,
     role: 'Product Designer, Pixel & Co.',
     initials: 'SR',
     tone: 'sand',
