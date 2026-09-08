@@ -63,15 +63,25 @@ Use `@/` for imports from `src`. Keep feature-only code inside its feature. All 
 - GitHub, LinkedIn, email, and telephone links use the supplied résumé details.
 - Project graphics are illustrative, not production screenshots. Replace them when real screenshots are available.
 - The “Kind words” section includes a condensed LinkedIn recommendation from Zeel Patel and two labeled illustrative placeholders. No unprovided certifications are claimed.
-- The contact form still previews locally and does not send messages. Visitors can use the real email link to contact Aastha directly.
+- The contact form sends submissions to Aastha through Web3Forms. The direct email link remains available as a fallback.
 - The AI-generated portrait remains a placeholder until a real photograph is supplied.
+
+Copy `.env.example` to `.env.local` and provide the Web3Forms configuration:
+
+```env
+VITE_WEB3FORMS_ENDPOINT=https://api.web3forms.com/submit
+VITE_WEB3FORMS_ACCESS_KEY=your-web3forms-access-key
+```
+
+Add the same variables to the deployment provider. Web3Forms access keys are public form
+identifiers; like every `VITE_` variable, they are included in the browser bundle.
 
 ## Behavior and accessibility
 
 - `/` contains the entire portfolio; `/about` redirects to the About section.
 - Sticky desktop navigation and a mobile disclosure menu with Escape support.
 - Project category filtering, accessible Radix/shadcn dialogs, and keyboard focus restoration.
-- Labeled native form validation, whitespace rejection, and local message previews.
+- Labeled native form validation, whitespace rejection, toast submission feedback, and bot protection.
 - GSAP section reveals and portrait motion are scoped and cleaned up on unmount.
 - Reduced-motion preferences disable reveals, floating motion, and smooth scrolling.
 - Fonts are bundled locally; no external font requests are required.
