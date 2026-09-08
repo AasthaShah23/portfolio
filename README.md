@@ -62,7 +62,7 @@ Use `@/` for imports from `src`. Keep feature-only code inside its feature. All 
 - The header, footer, contact details, and hero metrics read from the shared profile data.
 - GitHub, LinkedIn, email, and telephone links use the supplied résumé details.
 - Project graphics are illustrative, not production screenshots. Replace them when real screenshots are available.
-- The “Kind words” section contains clearly labeled illustrative testimonials to replace with real recommendations. No unprovided certifications are claimed.
+- The “Kind words” section includes a condensed LinkedIn recommendation from Zeel Patel and two labeled illustrative placeholders. No unprovided certifications are claimed.
 - The contact form still previews locally and does not send messages. Visitors can use the real email link to contact Aastha directly.
 - The AI-generated portrait remains a placeholder until a real photograph is supplied.
 

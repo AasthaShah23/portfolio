@@ -23,7 +23,7 @@ export function EducationSection() {
               >
                 <div>
                   <h4>{item.title}</h4>
-                  <span>{item.date}</span>
+                  {item.date && <span>{item.date}</span>}
                 </div>
                 <p>{item.place}</p>
                 <p className="education-detail">{item.detail}</p>
