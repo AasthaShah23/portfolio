@@ -42,7 +42,18 @@ export function TestimonialsSection() {
                   {item.initials}
                 </span>
                 <div>
-                  <span className="block text-[11px] font-medium">{item.name}</span>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-[11px] font-medium underline decoration-primary/30 underline-offset-4 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <span className="block text-[11px] font-medium">{item.name}</span>
+                  )}
                   <span className="mt-1 block text-[9px] leading-relaxed text-text-soft">
                     {item.role}
                   </span>
