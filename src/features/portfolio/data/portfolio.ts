@@ -360,18 +360,12 @@ export const education = [
   },
 ]
 
-export const focusAreas = [
+export const certificates = [
   {
-    title: 'Full-stack engineering',
-    issuer: 'Production features, secure APIs, and multi-tenant systems',
-  },
-  {
-    title: 'Conversational AI',
-    issuer: 'Dialogflow CX, context-aware interactions, and GCP',
-  },
-  {
-    title: 'Performance & collaboration',
-    issuer: 'API optimization, code reviews, and intern mentoring',
+    title: 'Ultimate AWS Certified Cloud Practitioner CLF-C02 2026',
+    date: 'September 19, 2026',
+    dateTime: '2026-09-19',
+    href: '/certificates/aws-cloud-practitioner.pdf',
   },
 ]
 

@@ -1,6 +1,6 @@
 import { Award, GraduationCap, BookOpen } from 'lucide-react'
 import { SectionHeading } from '../components/section-heading'
-import { focusAreas, education } from '../data/portfolio'
+import { certificates, education } from '../data/portfolio'
 export function EducationSection() {
   return (
     <section
@@ -32,19 +32,30 @@ export function EducationSection() {
           </div>
           <div data-reveal>
             <h3 className="flex items-center gap-[10px] text-[14px] font-semibold mb-5 [&_>_svg]:text-text-soft">
-              <Award size={19} /> Focus areas
+              <Award size={19} /> Certificates
             </h3>
-            {focusAreas.map((item) => (
+            {certificates.map((item) => (
               <article
                 className="p-[17px] mb-[10px] border border-border rounded-[6px] flex gap-[13px] items-center bg-card [&_h4]:text-[11px] [&_h4]:font-semibold [&_p]:text-[9px] [&_p]:text-text-soft [&_p]:mt-[3px] max-[600px]:p-4 max-[600px]:[&_h4]:text-[11px] max-[600px]:[&_p]:text-[9px]"
                 key={item.title}
               >
-                <span className="grid place-items-center w-[35px] h-[35px] bg-surface-tinted rounded-[6px] text-text-soft">
+                <span className="grid place-items-center w-[35px] h-[35px] shrink-0 bg-surface-tinted rounded-[6px] text-text-soft">
                   <Award size={20} />
                 </span>
                 <div>
                   <h4>{item.title}</h4>
-                  <p>{item.issuer}</p>
+                  <p>
+                    <time dateTime={item.dateTime}>{item.date}</time>
+                  </p>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex rounded-sm text-[11px] font-semibold text-foreground underline underline-offset-4 hover:text-text-soft focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                    aria-label={`View ${item.title} certificate (PDF, opens in a new tab)`}
+                  >
+                    View certificate (PDF)
+                  </a>
                 </div>
               </article>
             ))}
